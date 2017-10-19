@@ -3,6 +3,8 @@ package co.udea.iw.dto;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.springframework.transaction.annotation.Transactional;
+
 public class Cliente implements Serializable {
 	private String cedula;
 	private String nombres;

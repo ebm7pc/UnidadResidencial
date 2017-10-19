@@ -1,28 +1,17 @@
 package co.udea.iw.dto;
 
-public class Usuario {
-	private String login;
-	private String nombres;
-	private String apellidos;
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
+	private String nombreUsuario;
 	private String password;
-	private Rol rol;
-	public String getLogin() {
-		return login;
+	private String tipoUsuario;
+	
+	public String getNombreUsuario() {
+		return nombreUsuario;
 	}
-	public void setLogin(String login) {
-		this.login = login;
-	}
-	public String getNombres() {
-		return nombres;
-	}
-	public void setNombres(String nombres) {
-		this.nombres = nombres;
-	}
-	public String getApellidos() {
-		return apellidos;
-	}
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
 	}
 	public String getPassword() {
 		return password;
@@ -30,10 +19,11 @@ public class Usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Rol getRol() {
-		return rol;
+	public String getTipoUsuario() {
+		return tipoUsuario;
 	}
-	public void setRol(Rol rol) {
-		this.rol = rol;
+	public void setTipoUsuario(String tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
 	}
+	
 }
