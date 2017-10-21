@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 20/10/2017 07:04:19 PM by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="co.udea.iw.dto.Cliente" table="CLIENTES" lazy="false">
+    <class name="co.udea.iw.dto.Cliente" table="CLIENTES" lazy="false"> <!--  -->
     
         <id name="ficho" type="java.lang.Integer">
             <column name="NUMERO_FICHO" precision="10" />

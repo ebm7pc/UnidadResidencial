@@ -20,9 +20,7 @@ public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioD
 		}catch(HibernateException e) {
 			throw new IWDaoException(e);
 		}finally {
-			//session.close();
-			session.closeSession();
-			
+			session.close();
 		}
 		return usuario;
 	}

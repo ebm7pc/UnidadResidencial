@@ -10,5 +10,6 @@ public interface ClienteDAO {
 	public Cliente modificar(Cliente residente) throws IWDaoException;
 	public void eliminar(Cliente residente) throws IWDaoException;
 	public List <Cliente> obtener() throws IWDaoException;
-	public Cliente obtener(String cedula) throws IWDaoException;
+	public List<Cliente> obtenerByTipo(String tipo) throws IWDaoException;
+	public Cliente obtener(Integer ficho) throws IWDaoException;
 }
