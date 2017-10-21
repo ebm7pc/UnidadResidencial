@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/10/2017 06:04:52 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="co.udea.iw.dto.Visitante" table="CLIENTES" lazy="false">
+    
+    	<id name="ficho" type="java.lang.Integer">
+            <column name="NUMERO_FICHO" />
+            <generator class="assigned" />
+        </id>
+        
+        <property name="tipo" type="java.lang.String">
+            <column name="TIPO" />
+        </property>
+        
+        <property name="nombre" type="java.lang.String">
+            <column name="NOMBRE" />
+        </property>
+        
+        <property name="apellido" type="java.lang.String">
+            <column name="APELLIDO" />        
+        </property>
+        
+        <property name="identificacion" type="java.lang.Integer">
+            <column name="IDENTIFICACION" />
+        </property>
+        
+        <property name="apartamento" type="java.lang.String">
+            <column name="APARTAMENTO" />
+        </property>
+        <property name="tieneVehiculo" type="boolean">
+            <column name="TIENE_VEHICULO" />
+        </property>
+        <property name="fechaRegistro" type="java.util.Date">
+            <column name="FECHA_REGISTRO" />
+        </property>
+        <property name="responsable" type="java.lang.String">
+            <column name="RESPONSABLE" />
+        </property>
+        <property name="fechaSalida" type="java.util.Date">
+            <column name="FECHA_SALIDA" />
+        </property>
+    </class>
+</hibernate-mapping>

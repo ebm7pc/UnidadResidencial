@@ -1,67 +1,62 @@
 package co.udea.iw.dao.hibernate;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import co.udea.iw.dao.ClienteDAO;
-import co.udea.iw.dto.Ciudad;
-import co.udea.iw.dto.Cliente;
+import co.udea.iw.dao.VisitanteDAO;
+import co.udea.iw.dto.Visitante;
 import co.udea.iw.exception.IWDaoException;
 
-public class CienteDAOHibernate extends HibernateDaoSupport implements ClienteDAO {
+public class VisitanteDAOHibernate extends HibernateDaoSupport implements VisitanteDAO {
 
 	@Override
-	public Cliente insertar(Cliente cliente) throws IWDaoException {
+	public Visitante insertar(Visitante visitante) throws IWDaoException {
 		Transaction tx = null;
 		Session session = null;
 		try {
 		session = this.getSessionFactory().getCurrentSession(); //getSession();
 		tx = session.beginTransaction();
-		session.save(cliente);
+		session.save(visitante);
 		tx.commit();
 		}catch (HibernateException e) {
 			throw new IWDaoException(e);			
 		}finally {
 			session.close();
 		}
-		return cliente;
+		return visitante;
 	}
 
 	@Override
-	public Cliente modificar(Cliente cliente) throws IWDaoException {
+	public Visitante modificar(Visitante visitante) throws IWDaoException {
 		Transaction tx = null;
 		Session session = null;
 		try {
 		session = this.getSessionFactory().getCurrentSession(); // getSession();
 		tx = session.beginTransaction();
-		session.update(cliente);
+		session.update(visitante);
 		tx.commit();
 		}catch (HibernateException e) {
 			throw new IWDaoException(e);			
 		}finally {
 			session.close();
 		}
-		return cliente;
+		return visitante;
 	}
 
 	@Override
-	public void eliminar(Cliente cliente) throws IWDaoException {
+	public void eliminar(Visitante visitante) throws IWDaoException {
 		Transaction tx = null;
 		Session session = null;
 		try {
 		session = this.getSessionFactory().getCurrentSession(); //getSession();
 		tx = session.beginTransaction();
-		cliente.setEliminado(true);
-		cliente.setFechaEliminacion(new Date());
-		session.delete(cliente);
+		session.delete(visitante);
 		tx.commit();
 		}catch (HibernateException e) {
 			throw new IWDaoException(e);			
@@ -71,31 +66,31 @@ public class CienteDAOHibernate extends HibernateDaoSupport implements ClienteDA
 	}
 
 	@Override
-	public List<Cliente> obtener() throws IWDaoException {
-		List<Cliente> clientes = new ArrayList<Cliente>();
+	public List<Visitante> obtener() throws IWDaoException {
+		List<Visitante> visitantes = new ArrayList<Visitante>();
 		try {
 		Session session = this.getSessionFactory().getCurrentSession(); //getSession();
-		Criteria criteria = session.createCriteria(Cliente.class);
-		clientes = criteria.list();
+		Criteria criteria = session.createCriteria(Visitante.class);
+		visitantes = criteria.list();
 		}catch (HibernateException e) {
 			throw new IWDaoException(e);
 		}
-		return clientes;
+		return visitantes;
 	}
 
 	@Override
-	public Cliente obtener(String cedula) throws IWDaoException {
-		Cliente cliente = null;
+	public Visitante obtener(String cedula) throws IWDaoException {
+		Visitante visitante = null;
 		Session session = null;
 		try {
 		session = this.getSessionFactory().getCurrentSession(); //getSession();
-		cliente = (Cliente)session.load(Cliente.class, cedula);
+		visitante = (Visitante)session.load(Visitante.class, cedula);
 		}catch (HibernateException e) {
 			throw new IWDaoException(e);			
 		}finally {
 			session.close();
 		}
-		return cliente;
+		return visitante;
 	}
 
 }

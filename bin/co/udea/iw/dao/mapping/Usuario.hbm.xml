@@ -1,24 +1,21 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 3/10/2017 09:11:16 PM by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 20/10/2017 07:00:32 PM by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="co.udea.iw.dto.Usuario" table="USUARIOS">
-    	<id name="login" type="java.lang.String">
-            <column name="LOGIN" length="15" />
+    <class name="co.udea.iw.dto.Usuario" table="USUARIOS" lazy="false">
+    
+        <id name="nombreUsuario" type="java.lang.String">
+            <column name="NOMBRE" />
             <generator class="assigned" />
         </id>
-        <property name="nombres" type="java.lang.String">
-            <column name="NOMBRES" length="45" not-null="true" />
-        </property>
-        <property name="apellidos" type="java.lang.String">
-            <column name="APELLIDOS" length="45" not-null="true" />
-        </property>
+        
         <property name="password" type="java.lang.String">
-            <column name="CONTRASENA" length="125" not-null="true" />
+            <column name="PASSWORD" />
         </property>
-        <many-to-one name="rol" class="co.udea.iw.dto.Rol" fetch="join">
-            <column name="ROL" length="12" not-null="true" />
-        </many-to-one>
+        
+        <property name="tipoUsuario" type="java.lang.String">
+            <column name="TIPO_USUARIO" />
+        </property>
     </class>
 </hibernate-mapping>

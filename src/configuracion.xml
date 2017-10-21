@@ -18,11 +18,11 @@
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="mappingResources">
 			<list>
-				<value>co/udea/iw/dao/mapping/Ciudad.hbm.xml</value>
-        		<value>co/udea/iw/dao/mapping/Cliente.hbm.xml</value>
-        		<value>co/udea/iw/dao/mapping/Rol.hbm.xml</value>
+				<value>co/udea/iw/dao/mapping/Acceso.hbm.xml</value>
+        		<value>co/udea/iw/dao/mapping/Residente.hbm.xml</value>
         		<value>co/udea/iw/dao/mapping/Usuario.hbm.xml</value>
-        		<value>co/udea/iw/dao/mapping/Direccion.hbm.xml</value>
+        		<value>co/udea/iw/dao/mapping/Vehiculo.hbm.xml</value>
+        		<value>co/udea/iw/dao/mapping/Visitante.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -39,11 +39,11 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
-	<bean id="ciudadDao" class="co.udea.iw.dao.hibernate.CiudadDAOHibernate">
+	<bean id="accesoDAO" class="co.udea.iw.dao.hibernate.AccesoDAOHibernate">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
-	<bean id="clienteDAO" class="co.udea.iw.dao.hibernate.CienteDAOHibernate">
+	<bean id="residenteDAO" class="co.udea.iw.dao.hibernate.ResidenteDAOHibernate">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
@@ -51,10 +51,18 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
+	<bean id="vehiculoDAO" class="co.udea.iw.dao.hibernate.VehiculoDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="visitanteDAO" class="co.udea.iw.dao.hibernate.VisitanteDAOHibernate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	
 	<bean id="clienteService" class="co.udea.iw.service.ClienteService">
 		<property name="clienteDAO" ref="clienteDAO"></property>
 		<property name="usuarioDAO" ref="usuarioDAO"></property>
 	</bean>
-
 
 </beans>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/10/2017 06:55:23 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="co.udea.iw.dto.Vehiculo" table="VEHICULOS" lazy="false">
+    
+    	<id name="placa" type="java.lang.String">
+            <column name="PLACA" />
+            <generator class="assigned" />
+        </id>
+    	
+    	<property name="marca" type="java.lang.String">
+            <column name="MARCA" />
+        </property>
+    	
+        <many-to-one name="idCliente" type="java.lang.Integer"> <!-- fetch="join" -->
+            <column name="ID_CLIENTE" />
+        </many-to-one>
+        
+    </class>
+</hibernate-mapping>
