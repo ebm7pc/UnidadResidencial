@@ -6,16 +6,16 @@
     <class name="co.udea.iw.dto.Vehiculo" table="VEHICULOS" lazy="false">
     
     	<id name="placa" type="java.lang.String">
-            <column name="PLACA" />
+            <column name="PLACA" length="50" />
             <generator class="assigned" />
         </id>
     	
     	<property name="marca" type="java.lang.String">
-            <column name="MARCA" />
+            <column name="MARCA" not-null="false" length="50" />
         </property>
     	
-        <many-to-one name="idCliente" type="java.lang.Integer"> <!-- fetch="join" -->
-            <column name="ID_CLIENTE" />
+        <many-to-one name="idCliente" class="co.udea.iw.dto.Cliente" fetch="join"> <!-- fetch="join" -->
+            <column name="ID_CLIENTE" not-null="true" precision="10" />
         </many-to-one>
         
     </class>

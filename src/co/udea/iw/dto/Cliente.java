@@ -3,17 +3,21 @@ package co.udea.iw.dto;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Visitante implements Serializable {
+public class Cliente implements Serializable {
 	private Integer ficho;
 	private String tipo;
 	private String nombre;
 	private String apellido;
 	private Integer identificacion;
 	private String apartamento;
+	private Integer telefono;
+	private Integer celular;
+	private String correo;
 	private boolean tieneVehiculo;
 	private Date fechaRegistro;
 	private String responsable;
 	private Date fechaSalida;
+	
 	
 	public Integer getFicho() {
 		return ficho;
@@ -51,6 +55,24 @@ public class Visitante implements Serializable {
 	public void setApartamento(String apartamento) {
 		this.apartamento = apartamento;
 	}
+	public Integer getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(Integer telefono) {
+		this.telefono = telefono;
+	}
+	public Integer getCelular() {
+		return celular;
+	}
+	public void setCelular(Integer celular) {
+		this.celular = celular;
+	}
+	public String getCorreo() {
+		return correo;
+	}
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
 	public boolean isTieneVehiculo() {
 		return tieneVehiculo;
 	}
@@ -75,6 +97,4 @@ public class Visitante implements Serializable {
 	public void setFechaSalida(Date fechaSalida) {
 		this.fechaSalida = fechaSalida;
 	}
-
-	
 }

@@ -6,16 +6,16 @@
     <class name="co.udea.iw.dto.Acceso" table="ACCESOS" lazy="false">
     
         <id name="id" type="java.lang.Integer">
-            <column name="ID" />
+            <column name="ID" precision="10"/>
             <generator class="assigned" />
         </id>
         
         <property name="fechaAcceso" type="java.util.Date">
-            <column name="FECHA_ACCESO" />
+            <column name="FECHA_ACCESO" not-null="true" />
         </property>
         
-        <many-to-one name="idCliente" type="java.lang.Integer"> <!-- fetch="join" -->
-            <column name="ID_CLIENTE" />
+        <many-to-one name="idCliente" class="co.udea.iw.dto.Cliente" fetch="join"> <!-- fetch="join" -->
+            <column name="ID_CLIENTE" not-null="true" precision="10" />
         </many-to-one>
     </class>
 </hibernate-mapping>

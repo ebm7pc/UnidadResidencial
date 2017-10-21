@@ -3,51 +3,58 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 20/10/2017 07:04:19 PM by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="co.udea.iw.dto.Residente" table="RESIDENTE" lazy="false">
+    <class name="co.udea.iw.dto.Cliente" table="CLIENTES" lazy="false">
     
         <id name="ficho" type="java.lang.Integer">
-            <column name="NUMERO_FICHO" />
+            <column name="NUMERO_FICHO" precision="10" />
             <generator class="assigned" />
         </id>
         
         <property name="tipo" type="java.lang.String">
-            <column name="TIPO" />
+            <column name="TIPO" not-null="true" length="100" />
         </property>
         
         <property name="nombre" type="java.lang.String">
-            <column name="NOMBRE" />
+            <column name="NOMBRE" not-null="true" length="100" />
         </property>
         
         <property name="apellido" type="java.lang.String">
-            <column name="APELLIDO" />
+            <column name="APELLIDO" not-null="true" length="100" />
         </property>
         
         <property name="identificacion" type="java.lang.Integer">
-            <column name="IDENTIFICACION" />
+            <column name="IDENTIFICACION" not-null="true" length="15" />
         </property>
         
         <property name="apartamento" type="java.lang.String">
-            <column name="APARTAMENTO" />
+            <column name="APARTAMENTO" not-null="true" length="100" />
         </property>
         
         <property name="telefono" type="java.lang.Integer">
-            <column name="TELEFONO" />
+            <column name="TELEFONO" not-null="false" precision="10" />
         </property>
         
         <property name="celular" type="java.lang.Integer">
-            <column name="CELULAR" />
+            <column name="CELULAR" not-null="false" precision="15" />
         </property>
         
         <property name="correo" type="java.lang.String">
-            <column name="CORREO" />
+            <column name="CORREO" not-null="false" length="100" />
         </property>
         
         <property name="tieneVehiculo" type="boolean">
-            <column name="TIENE_VEHICULO" />
+            <column name="TIENE_VEHICULO" not-null="true" length="1" />
         </property>
         
         <property name="fechaRegistro" type="java.util.Date">
-            <column name="FECHA_REGISTRO" />
+            <column name="FECHA_REGISTRO" not-null="true" />
+        </property>
+        
+        <property name="responsable" type="java.lang.String">
+            <column name="RESPONSABLE" not-null="false" length="100" />
+        </property>
+        <property name="fechaSalida" type="java.util.Date">
+            <column name="FECHA_SALIDA" not-null="false" />
         </property>
     </class>
 </hibernate-mapping>

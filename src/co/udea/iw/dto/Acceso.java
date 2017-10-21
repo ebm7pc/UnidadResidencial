@@ -6,7 +6,8 @@ import java.util.Date;
 public class Acceso implements Serializable {
 	private Integer id;
 	private Date fechaAcceso;
-	private Integer idCliente;
+	private Cliente idCliente;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -19,10 +20,10 @@ public class Acceso implements Serializable {
 	public void setFechaAcceso(Date fechaAcceso) {
 		this.fechaAcceso = fechaAcceso;
 	}
-	public Integer getIdCliente() {
+	public Cliente getIdCliente() {
 		return idCliente;
 	}
-	public void setIdCliente(Integer idCliente) {
+	public void setIdCliente(Cliente idCliente) {
 		this.idCliente = idCliente;
 	}
 	

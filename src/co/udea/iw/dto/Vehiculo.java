@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Vehiculo implements Serializable {
 	private String placa;
 	private String marca;
-	private Integer idCliente;
+	private Cliente idCliente;
 	
 	public String getPlaca() {
 		return placa;
@@ -19,10 +19,10 @@ public class Vehiculo implements Serializable {
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
-	public Integer getIdCliente() {
+	public Cliente getIdCliente() {
 		return idCliente;
 	}
-	public void setIdCliente(Integer idCliente) {
+	public void setIdCliente(Cliente idCliente) {
 		this.idCliente = idCliente;
 	}
 }

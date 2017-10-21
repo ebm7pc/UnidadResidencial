@@ -11,16 +11,18 @@ import co.udea.iw.exception.IWDaoException;
 public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioDAO {
 
 	@Override
-	public Usuario obtener(String alias) throws IWDaoException {
+	public Usuario obtener(String nombre) throws IWDaoException {
 		Session session = null;
 		Usuario usuario = null;
 		try {
 			session = this.getSessionFactory().getCurrentSession();
-			usuario = (Usuario)session.load(Usuario.class, alias);
+			usuario = (Usuario)session.load(Usuario.class, nombre);
 		}catch(HibernateException e) {
 			throw new IWDaoException(e);
 		}finally {
-			session.close();
+			//session.close();
+			session.closeSession();
+			
 		}
 		return usuario;
 	}

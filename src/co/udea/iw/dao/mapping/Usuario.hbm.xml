@@ -6,16 +6,16 @@
     <class name="co.udea.iw.dto.Usuario" table="USUARIOS" lazy="false">
     
         <id name="nombreUsuario" type="java.lang.String">
-            <column name="NOMBRE" />
+            <column name="NOMBRE" length="100" />
             <generator class="assigned" />
         </id>
         
         <property name="password" type="java.lang.String">
-            <column name="PASSWORD" />
+            <column name="PASSWORD" not-null="true" length="100" />
         </property>
         
         <property name="tipoUsuario" type="java.lang.String">
-            <column name="TIPO_USUARIO" />
+            <column name="TIPO_USUARIO" not-null="true" length="100" />
         </property>
     </class>
 </hibernate-mapping>
