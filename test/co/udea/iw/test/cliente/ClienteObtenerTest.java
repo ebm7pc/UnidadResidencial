@@ -19,26 +19,24 @@ import co.udea.iw.exception.IWDaoException;
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
 @ContextConfiguration(locations = "classpath:configuracion.xml")
-public class ClienteObtenerByTipoTest {
+public class ClienteObtenerTest {
 
 	@Autowired
 	ClienteDAO clienteDAO;
-
+	
 	@Test
 	@Rollback(false)
-	public void testObtenerByTipo() {
-
+	public void testObtener() {
 		List<Cliente> clientes = null;
 		try {
-			clientes = clienteDAO.obtenerByTipo("Visitante");
-			for (Cliente cliente : clientes) {
-				System.out.println("Nombre cliente: " + cliente.getNombre());
-				System.out.println("Apartamento del cliente: " + cliente.getApartamento());
+			clientes = clienteDAO.obtener();
+			for(Cliente cliente : clientes) {
+				System.out.println(cliente.getApartamento());
+				System.out.println(cliente.getCelular());
 			}
 			assertTrue(true);
-		} catch (IWDaoException e) {
+		}catch (IWDaoException e) {
 			fail(e.getMessage());
 		}
 	}
-
 }

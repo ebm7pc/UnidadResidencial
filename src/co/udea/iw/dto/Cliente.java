@@ -8,16 +8,15 @@ public class Cliente implements Serializable {
 	private String tipo;
 	private String nombre;
 	private String apellido;
-	private Integer identificacion;
+	private Long identificacion;
 	private String apartamento;
-	private Integer telefono;
-	private Integer celular;
+	private Long telefono;
+	private Long celular;
 	private String correo;
 	private boolean tieneVehiculo;
 	private Date fechaRegistro;
 	private String responsable;
 	private Date fechaSalida;
-	
 	
 	public Integer getFicho() {
 		return ficho;
@@ -43,10 +42,10 @@ public class Cliente implements Serializable {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	public Integer getIdentificacion() {
+	public Long getIdentificacion() {
 		return identificacion;
 	}
-	public void setIdentificacion(Integer identificacion) {
+	public void setIdentificacion(Long identificacion) {
 		this.identificacion = identificacion;
 	}
 	public String getApartamento() {
@@ -55,16 +54,16 @@ public class Cliente implements Serializable {
 	public void setApartamento(String apartamento) {
 		this.apartamento = apartamento;
 	}
-	public Integer getTelefono() {
+	public Long getTelefono() {
 		return telefono;
 	}
-	public void setTelefono(Integer telefono) {
+	public void setTelefono(Long telefono) {
 		this.telefono = telefono;
 	}
-	public Integer getCelular() {
+	public Long getCelular() {
 		return celular;
 	}
-	public void setCelular(Integer celular) {
+	public void setCelular(Long celular) {
 		this.celular = celular;
 	}
 	public String getCorreo() {
@@ -97,4 +96,6 @@ public class Cliente implements Serializable {
 	public void setFechaSalida(Date fechaSalida) {
 		this.fechaSalida = fechaSalida;
 	}
+	
+	
 }

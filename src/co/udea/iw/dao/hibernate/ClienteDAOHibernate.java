@@ -84,22 +84,28 @@ public class ClienteDAOHibernate extends HibernateDaoSupport implements ClienteD
 	@Override
 	public List<Cliente> obtenerByTipo(String tipo) throws IWDaoException {
 		List<Cliente> clientes = new ArrayList<>();
+		List<Cliente> clientesFiltrados = new ArrayList<>();
 		Session session = null;
 		try {
 			session = this.getSessionFactory().getCurrentSession(); // getSession();
-			Criteria criteria = session.createCriteria(Cliente.class, tipo);
+			Criteria criteria = session.createCriteria(Cliente.class);
 			clientes = criteria.list();
+			for(Cliente cliente : clientes) {
+				if (tipo.equalsIgnoreCase(cliente.getTipo())) {
+					clientesFiltrados.add(cliente);
+				}
+			}
 		} catch (HibernateException e) {
 			throw new IWDaoException(e);
 		} finally {
 			session.close();
 		}
-		return clientes;
+		return clientesFiltrados;
 	}
 	
 
 	@Override
-	public Cliente obtener(Integer ficho) throws IWDaoException {
+	public Cliente obtener(Long ficho) throws IWDaoException {
 		Cliente cliente = null;
 		Session session = null;
 		try {
