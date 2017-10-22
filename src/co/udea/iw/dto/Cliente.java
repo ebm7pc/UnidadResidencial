@@ -2,16 +2,47 @@ package co.udea.iw.dto;
 
 import java.io.Serializable;
 import java.util.Date;
-
+/**
+ * 
+ * @author Eduardo B , Yesid M
+ * Clase dto para la tabla clientes de la base de datos
+ */
 public class Cliente implements Serializable {
+	/**
+	 * Ficho con el que se validara el acceso del cliente
+	 */
 	private Integer ficho;
+	/**
+	 * Tipo del cliente, ya sea Residente o Visitante
+	 */
 	private String tipo;
+	/**
+	 * Nombre del cliente
+	 */
 	private String nombre;
+	/**
+	 * Apellido del cliente
+	 */
 	private String apellido;
+	/**
+	 * Cedula del cliente 
+	 */
 	private Long identificacion;
+	/**
+	 * identificacion del apartamente al que pertenece el cliente
+	 */
 	private String apartamento;
+	/**
+	 * Numero telefonico del cliente
+	 */
 	private Long telefono;
+	/**
+	 * Numero del celular del cliente
+	 */
 	private Long celular;
+	/**
+	 * Correo electronico del cliente
+	 */
 	private String correo;
 	
 	/**

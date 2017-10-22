@@ -1,10 +1,23 @@
 package co.udea.iw.dto;
 
 import java.io.Serializable;
-
+/**
+ * 
+ * @author Eduardo B , Yesid M
+ * Clase dto para la tabla usuarios de la base de datos
+ */
 public class Usuario implements Serializable {
+	/**
+	 * nombre de un usuario con el que hara el loguin
+	 */
 	private String nombreUsuario;
+	/**
+	 * Contraseña del usuario
+	 */
 	private String password;
+	/**
+	 * Tipo del usuario para otorgar permisos
+	 */
 	private String tipoUsuario;
 			
 	

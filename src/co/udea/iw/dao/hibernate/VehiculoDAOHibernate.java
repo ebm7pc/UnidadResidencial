@@ -13,9 +13,17 @@ import co.udea.iw.dao.VehiculoDAO;
 import co.udea.iw.dto.Cliente;
 import co.udea.iw.dto.Vehiculo;
 import co.udea.iw.exception.IWDaoException;
-
+/**
+ * 
+ * @author Eduardo B , Yesid M
+ * Clase que implementa los metodos de la logica del negocio para la tabla de vehiculos
+ */
 public class VehiculoDAOHibernate extends HibernateDaoSupport implements VehiculoDAO {
 
+	
+	/**
+	 * Metodo que permite insertar un nuevo vehiculo a la base de datos
+	 */
 	@Override
 	public Vehiculo insertar(Vehiculo vehiculo) throws IWDaoException {
 		Transaction tx = null;
@@ -33,6 +41,9 @@ public class VehiculoDAOHibernate extends HibernateDaoSupport implements Vehicul
 		return vehiculo;
 	}
 
+	/**
+	 * Metodo que permite eliminar un vehiculo de la base de datos
+	 */
 	@Override
 	public void eliminar(Vehiculo vehiculo) throws IWDaoException {
 		Transaction tx = null;
@@ -49,6 +60,9 @@ public class VehiculoDAOHibernate extends HibernateDaoSupport implements Vehicul
 		}
 	}
 
+	/**
+	 * Metodo que retor una lista de Vehiculos pertenesientes a un cliente 
+	 */
 	@Override
 	public List<Vehiculo> obtenerByCliente(Integer idCliente) throws IWDaoException {
 		List<Vehiculo> vehiculos = new ArrayList<>();
@@ -71,6 +85,9 @@ public class VehiculoDAOHibernate extends HibernateDaoSupport implements Vehicul
 		return vehiculosFiltrados;
 	}
 
+	/**
+	 * Metodo que permite obtener el cliente al cual pertenece un vehiculo con una placa dada
+	 */
 	@Override
 	public Cliente obtenerById(String placa) throws IWDaoException {
 		Vehiculo vehiculo = null;

@@ -1,11 +1,25 @@
 package co.udea.iw.dto;
 
 import java.io.Serializable;
-
+/**
+ * 
+ * @author Eduardo B , Yesid M
+ * Clase dto para la tabla Vehiculo de la base de datos
+ */
 public class Vehiculo implements Serializable {
+	/**
+	 * placa del vehiculo
+	 */
 	private String placa;
+	/**
+	 * marca del vehiculo
+	 */
 	private String marca;
+	/**
+	 * Cliente al cual pertence el vehiculo
+	 */
 	private Cliente idCliente;
+	
 	
 	public String getPlaca() {
 		return placa;
