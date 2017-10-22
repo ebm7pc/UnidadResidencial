@@ -13,9 +13,27 @@ public class Cliente implements Serializable {
 	private Long telefono;
 	private Long celular;
 	private String correo;
+	
+	/**
+	 * Valor booleano que permite determinar si el Cliente visitante o Residente se registro con vehiculo o sin vehiculo
+	 * 0 es sin vehiculo, 1 es con vehículo
+	 * Los clientes Residentes pueden registrar mas de un vehículo
+	 */
 	private boolean tieneVehiculo;
+	
+	/**
+	 * Fecha en la que se registró el cliente Residente o Visitante
+	 */
 	private Date fechaRegistro;
+	
+	/**
+	 * Nombre de la persona hacia la cual se dirige el Visitante
+	 */
 	private String responsable;
+	
+	/**
+	 * Fecha limite a la que tiene permiso de acceso un Cliente de tipo Visitante
+	 */
 	private Date fechaSalida;
 	
 	public Integer getFicho() {

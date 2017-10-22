@@ -49,7 +49,7 @@ public class AccesoInsertarTest {
 			Cliente cliente = clienteDAO.obtener(11);
 			Date fechaAcceso = new Date();
 			acceso=new Acceso(fechaAcceso,cliente);
-			//acceso.setId(4);
+			acceso.setId(4);
 			//acceso.setId(ident);
 			System.out.println(acceso.getId());
 			accesoDAO.insertar(acceso);

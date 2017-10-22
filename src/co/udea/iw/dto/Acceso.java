@@ -14,13 +14,18 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+/**
+ * Clasedto para los datos de Acceso
+ * @author Eduardo B , Yesid M
+ *
+ */
 @Entity
 @Table(name = "accesos")
 public class Acceso implements Serializable {
 	
-	//@SequenceGenerator(name = "native", sequenceName = "AUTO_INCREMENT")
-	//@GeneratedValue(strategy=GenerationType.IDENTITY, generator = "native")
-	//@GenericGenerator(name = "native", strategy = "native")
+//	@SequenceGenerator(name = "native", sequenceName = "AUTO_INCREMENT")
+//	@GeneratedValue(strategy=GenerationType.IDENTITY, generator = "native")
+//	@GenericGenerator(name = "native", strategy = "native")
 	
 	
 //	@Id
@@ -28,21 +33,35 @@ public class Acceso implements Serializable {
 //	@GeneratedValue(strategy= GenerationType.IDENTITY, generator="MySequenceGenerator")
 //	@SequenceGenerator(allocationSize=1, schema="AUTO_INCREMENT",  name="MySequenceGenerator", sequenceName = "AUTO_INCREMENT")
 	
+	/**
+	 * Identificador único del acceso
+	 */
 	@Id
     @GeneratedValue(strategy = GenerationType.TABLE)
 	private Integer id;
 	
+	/**
+	 * Fecha en que se realizó el acceso
+	 */
 	private Date fechaAcceso;
+	
+	/**
+	 * Cliente (Residente o Visitante) que realizó el acceso
+	 */
 	private Cliente idCliente;
 	
+	/**
+	 * Constructor de la clase acceso
+	 * @param fechaA Fecha de acceso
+	 * @param cliente Cliente que accedió
+	 */
 	public Acceso(Date fechaA, Cliente cliente) {
 		super();
 		this.fechaAcceso = fechaA;
 		this.idCliente = cliente;
 	}
 	
-	
-	
+
 	public Integer getId() {
 		return id;
 	}

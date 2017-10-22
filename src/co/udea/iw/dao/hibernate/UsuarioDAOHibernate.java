@@ -17,7 +17,7 @@ import co.udea.iw.exception.IWDaoException;
 public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioDAO {
 
 	/**
-	 * Metodo que permite obtener ontener un usuaruio de la base de datos por el nombre de usuario
+	 * Metodo que permite obtener un usuaruio de la base de datos por el nombre de usuario
 	 */
 	@Override
 	public Usuario obtener(String nombre) throws IWDaoException {
@@ -34,6 +34,9 @@ public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioD
 		return usuario;
 	}
 
+	/**
+	 * Metodo que permite insertar un usuario a la base de datos por nombre de usuario
+	 */
 	@Override
 	public Usuario insertar(Usuario usuario) throws IWDaoException {
 		Transaction tx = null;
@@ -51,6 +54,9 @@ public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioD
 		return usuario;
 	}
 
+	/**
+	 * Metodo que permite modificar la contraseña de un usuario en la base de datos por medio del nombre de usuario
+	 */
 	@Override
 	public Usuario modificar(String nombre, String pwd) throws IWDaoException {
 		Usuario usuario=null;
@@ -71,6 +77,9 @@ public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioD
 		return usuario;
 	}
 
+	/**
+	 * Metodo que permite eliminar un usuario de la base de datos
+	 */
 	@Override
 	public void eliminar(Usuario usuario) throws IWDaoException {
 		Transaction tx = null;
@@ -87,6 +96,9 @@ public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioD
 		}
 	}
 	
+	/**
+	 * Metodo que permite validar un usuario de la base de datos por nombre de usuario y dentro de este, por contraseña
+	 */
 	@Override
 	public String login(String nombre, String pwd) throws IWDaoException {
 		Usuario usuario = null;
