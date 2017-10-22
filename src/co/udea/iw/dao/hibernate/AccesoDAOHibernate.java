@@ -1,5 +1,7 @@
 package co.udea.iw.dao.hibernate;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -82,12 +84,14 @@ public class AccesoDAOHibernate extends HibernateDaoSupport implements AccesoDAO
 		}
 		return accesosFiltrados;
 	}
+	
 
 	/**
 	 * Metodo que permite obtener los acesos que se realizaron entre un par de fechas dadas, las cuales son recividas como parametros
 	 */
 	@Override
 	public List<Acceso> obtenerByFecha(Date fechaInicial, Date fechaFinal) throws IWDaoException {
+		//Date fechaI=ParseFecha(fechaInicial); Date fechaF=ParseFecha(fechaFinal);
 		List<Acceso> accesos = new ArrayList<>();
 		List<Acceso> accesosFiltrados = new ArrayList<>();
 		Session session = null;

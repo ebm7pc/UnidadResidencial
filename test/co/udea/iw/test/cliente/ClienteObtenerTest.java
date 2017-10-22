@@ -27,13 +27,11 @@ public class ClienteObtenerTest {
 	@Test
 	@Rollback(false)
 	public void testObtener() {
-		List<Cliente> clientes = null;
+		Cliente cliente = null;
 		try {
-			clientes = clienteDAO.obtener();
-			for(Cliente cliente : clientes) {
-				System.out.println(cliente.getApartamento());
-				System.out.println(cliente.getCelular());
-			}
+			cliente = clienteDAO.obtener(123);
+			System.out.println("Nombre cliente: " + cliente.getNombre());
+			System.out.println("Apartamento del cliente: " + cliente.getApartamento());
 			assertTrue(true);
 		}catch (IWDaoException e) {
 			fail(e.getMessage());
