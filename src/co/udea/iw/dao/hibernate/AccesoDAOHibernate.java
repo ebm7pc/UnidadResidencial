@@ -1,5 +1,7 @@
 package co.udea.iw.dao.hibernate;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -68,9 +70,28 @@ public class AccesoDAOHibernate extends HibernateDaoSupport implements AccesoDAO
 		}
 		return accesosFiltrados;
 	}
+	
+	
+	
+	private Date ParseFecha(String fecha)
+    {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        Date fechaDate = null;
+        try {
+            fechaDate = formato.parse(fecha);
+        } 
+        catch (ParseException ex) 
+        {
+            System.out.println(ex);
+        }
+        return fechaDate;
+    }
+	
+	
 
 	@Override
 	public List<Acceso> obtenerByFecha(Date fechaInicial, Date fechaFinal) throws IWDaoException {
+		//Date fechaI=ParseFecha(fechaInicial); Date fechaF=ParseFecha(fechaFinal);
 		List<Acceso> accesos = new ArrayList<>();
 		List<Acceso> accesosFiltrados = new ArrayList<>();
 		Session session = null;

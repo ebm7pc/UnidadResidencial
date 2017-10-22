@@ -105,7 +105,7 @@ public class ClienteDAOHibernate extends HibernateDaoSupport implements ClienteD
 	
 
 	@Override
-	public Cliente obtener(Long ficho) throws IWDaoException {
+	public Cliente obtener(Integer ficho) throws IWDaoException {
 		Cliente cliente = null;
 		Session session = null;
 		try {
