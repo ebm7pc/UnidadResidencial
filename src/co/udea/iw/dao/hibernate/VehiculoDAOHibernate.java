@@ -72,7 +72,7 @@ public class VehiculoDAOHibernate extends HibernateDaoSupport implements Vehicul
 	}
 
 	@Override
-	public Cliente obtenerById(Integer placa) throws IWDaoException {
+	public Cliente obtenerById(String placa) throws IWDaoException {
 		Vehiculo vehiculo = null;
 		Cliente cliente = null;
 		Session session = null;

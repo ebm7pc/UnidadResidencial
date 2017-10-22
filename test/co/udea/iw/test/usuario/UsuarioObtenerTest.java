@@ -31,14 +31,14 @@ public class UsuarioObtenerTest {
 		
 		Usuario usuario = null;
 		try {
-			usuario = usuarioD.obtener("qwerty");
+			usuario = usuarioD.obtener("yesi");
 				System.out.println("usuario:: " + usuario.getNombreUsuario() + " " + usuario.getPassword() + " " + usuario.getTipoUsuario());
 			assertTrue(true);
 		}catch(IWDaoException e) {
-			//fail(e.getMessage());
+			fail(e.getMessage());
 		}
 		
-		//fail("Not yet implemented");
+		
 	}
 
 

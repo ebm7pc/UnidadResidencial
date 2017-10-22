@@ -6,6 +6,7 @@ public class Usuario implements Serializable {
 	private String nombreUsuario;
 	private String password;
 	private String tipoUsuario;
+			
 	
 	public String getNombreUsuario() {
 		return nombreUsuario;

@@ -14,9 +14,17 @@ import co.udea.iw.dao.AccesoDAO;
 import co.udea.iw.dto.Acceso;
 import co.udea.iw.dto.Cliente;
 import co.udea.iw.exception.IWDaoException;
-
+/**
+ * 
+ * @author Eduardo B , Yesid M
+ * Clase que implementa los metodos de la logica del negocio para la tabla de accesos
+ */
 public class AccesoDAOHibernate extends HibernateDaoSupport implements AccesoDAO {
 
+	
+	/**
+	 * Metodo que permite insertar a la base de datos un nuevo acceso
+	 */
 	@Override
 	public Acceso insertar(Acceso acceso) throws IWDaoException {
 		Transaction tx = null;
@@ -34,6 +42,9 @@ public class AccesoDAOHibernate extends HibernateDaoSupport implements AccesoDAO
 		return acceso;
 	}
 	
+	/**
+	 * Metodo que permite obtener todos los acccesos registrados en la base de datos 
+	 */
 	@Override
 	public List<Acceso> obtener() throws IWDaoException {
 		List<Acceso> accesos = new ArrayList<Acceso>();
@@ -47,6 +58,9 @@ public class AccesoDAOHibernate extends HibernateDaoSupport implements AccesoDAO
 		return accesos;
 	}
 
+	/**
+	 * Metodo que permite obtener todos los accesos realizados por un cliente, recive como paramero el ficho del cliente 
+	 */
 	@Override
 	public List<Acceso> obtenerByIdCliente(Integer ficho) throws IWDaoException {
 		List<Acceso> accesos = new ArrayList<>();
@@ -69,6 +83,9 @@ public class AccesoDAOHibernate extends HibernateDaoSupport implements AccesoDAO
 		return accesosFiltrados;
 	}
 
+	/**
+	 * Metodo que permite obtener los acesos que se realizaron entre un par de fechas dadas, las cuales son recividas como parametros
+	 */
 	@Override
 	public List<Acceso> obtenerByFecha(Date fechaInicial, Date fechaFinal) throws IWDaoException {
 		List<Acceso> accesos = new ArrayList<>();
@@ -90,6 +107,10 @@ public class AccesoDAOHibernate extends HibernateDaoSupport implements AccesoDAO
 		}
 		return accesosFiltrados;
 	}
+	
+	/**
+	 * Metodo que retorna una lista de accesos de la base de datos por tipo de cliente ya sea Residente o Visistante 
+	 */
 
 	@Override
 	public List<Acceso> obtenerByTipoCliente(String tipo) throws IWDaoException {

@@ -9,9 +9,16 @@ import co.udea.iw.dao.UsuarioDAO;
 import co.udea.iw.dto.Cliente;
 import co.udea.iw.dto.Usuario;
 import co.udea.iw.exception.IWDaoException;
-
+/**
+ * 
+ * @author Eduardo B , Yesid M
+ * Clase que implementa los metodos de la logica del negocio para la tabla de usuarios
+ */
 public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioDAO {
 
+	/**
+	 * Metodo que permite obtener ontener un usuaruio de la base de datos por el nombre de usuario
+	 */
 	@Override
 	public Usuario obtener(String nombre) throws IWDaoException {
 		Session session = null;
@@ -87,8 +94,8 @@ public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioD
 		String inicioSesion = "";
 		try {
 			session = this.getSessionFactory().getCurrentSession(); // getSession();
-			usuario = (Usuario) session.load(Cliente.class, nombre);
-			if (usuario != null && usuario.getPassword()== pwd) {
+			usuario = (Usuario) session.load(Usuario.class, nombre);
+			if (usuario != null && pwd.equalsIgnoreCase(usuario.getPassword())) {
 				inicioSesion= usuario.getTipoUsuario();
 			}
 			else {
