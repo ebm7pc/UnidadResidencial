@@ -18,7 +18,7 @@ public class ClienteService {
 	
 	
 	public void guardarCliente(Integer ficho, String tipo , String nombre, String apellido, Long identificacion, String apartamento
-			,Long telefono,Integer celular,String correo,boolean tiene_vehiculo, Date fecha_registro,String responsable, Date fecha_salida) throws  IWDaoException, IWServiceException{
+			,Long telefono,Long celular,String correo,boolean tiene_vehiculo, Date fecha_registro,String responsable, Date fecha_salida) throws  IWDaoException, IWServiceException{
 		
 		Cliente cliente=null; 
 		
@@ -42,9 +42,22 @@ public class ClienteService {
 			throw new IWServiceException("La identificacion del usuarion no puede estar vacia ");
 		}		
 		
-		if(!Validaciones.isEmail(correoElectronico)) {
-			throw new IWServiceException("El correo electronico del cliente debe ser valido");
+		if(Validaciones.isTextoVacio(String.valueOf(apartamento))) {
+			throw new IWServiceException("La identificacion del usuarion no puede estar vacia ");
+		}	
+		
+		if(Validaciones.isTextoVacio(String.valueOf(String.valueOf(tiene_vehiculo)))) {
+			throw new IWServiceException("La identificacion del usuarion no puede estar vacia ");
 		}
+		
+		if(Validaciones.isTextoVacio(String.valueOf(String.valueOf(fecha_registro)))) {
+			throw new IWServiceException("La identificacion del usuarion no puede estar vacia ");
+		}	
+		
+		if(!Validaciones.isTextoVacio(correo)) {
+		if(!Validaciones.isEmail(correo)) {
+			throw new IWServiceException("El correo electronico del cliente debe ser valido");
+		}}
 		
 		cliente= new Cliente();
 		
