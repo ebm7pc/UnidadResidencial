@@ -18,7 +18,7 @@ public class ClienteService {
 	
 	
 	public void guardarCliente(Integer ficho, String tipo , String nombre, String apellido, Long identificacion, String apartamento
-			,Long telefono,Long celular,String correo,boolean tiene_vehiculo, Date fecha_registro,String responsable, Date fecha_salida) throws  IWDaoException, IWServiceException{
+			,Long telefono,Long celular,String correo,boolean tiene_vehiculo,String responsable, Date fecha_salida) throws  IWDaoException, IWServiceException{
 		
 		Cliente cliente=null; 
 		
@@ -50,10 +50,7 @@ public class ClienteService {
 			throw new IWServiceException("La identificacion del usuarion no puede estar vacia ");
 		}
 		
-		if(Validaciones.isTextoVacio(String.valueOf(String.valueOf(fecha_registro)))) {
-			throw new IWServiceException("La identificacion del usuarion no puede estar vacia ");
-		}	
-		
+				
 		if(!Validaciones.isTextoVacio(correo)) {
 		if(!Validaciones.isEmail(correo)) {
 			throw new IWServiceException("El correo electronico del cliente debe ser valido");
@@ -61,13 +58,19 @@ public class ClienteService {
 		
 		cliente= new Cliente();
 		
-		cliente.setCedula(cedula);
-		cliente.setNombres(nombres);
-		cliente.setApellidos(apellidos);
-		cliente.setCorreoElectronico(correoElectronico);
-		cliente.setUsuarioCrea(usuario);
-		cliente.setFechaCreacion(new Date());
-		cliente.setEliminado(Boolean.FALSE);
+		cliente.setFicho(ficho);;
+		cliente.setTipo(tipo);
+		cliente.setNombre(nombre);
+		cliente.setApellido(apellido);
+		cliente.setIdentificacion(identificacion);
+		cliente.setApartamento(apartamento);
+		cliente.setTelefono(telefono);
+		cliente.setCelular(celular);
+		cliente.setTieneVehiculo(tiene_vehiculo);
+		cliente.setResponsable(responsable);
+		cliente.setFechaSalida(fecha_salida);
+		cliente.setFechaRegistro(new Date());
+		
 		
 		clienteDAO.insertar(cliente);
 	}
@@ -77,14 +80,14 @@ public class ClienteService {
 		
 	}
 	
-	public Cliente obtener(String cedula) throws IWDaoException, IWServiceException{
+	public Cliente obtener(Integer ficho) throws IWDaoException, IWServiceException{
 		
-		if(cedula == null) {
+		if(ficho == null) {
 			
-			throw new IWServiceException("la cedula del cliente no puede ser nula");
+			throw new IWServiceException("El ficho del cliente no puede esatr vacio");
 		}
 		
-		return clienteDAO.obtener(cedula);
+		return clienteDAO.obtener(ficho);
 		
 	}
 }
