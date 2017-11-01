@@ -39,15 +39,15 @@ public class ClienteService {
 		}
 		
 		if(Validaciones.isTextoVacio(String.valueOf(identificacion))) {
-			throw new IWServiceException("La identificacion del usuarion no puede estar vacia ");
+			throw new IWServiceException("La identificacion del usuario no puede estar vacia ");
 		}		
 		
 		if(Validaciones.isTextoVacio(String.valueOf(apartamento))) {
-			throw new IWServiceException("La identificacion del usuarion no puede estar vacia ");
+			throw new IWServiceException("El campo de apartamento del usuario no puede estar vacio ");
 		}	
 		
 		if(Validaciones.isTextoVacio(String.valueOf(String.valueOf(tiene_vehiculo)))) {
-			throw new IWServiceException("La identificacion del usuarion no puede estar vacia ");
+			throw new IWServiceException("La opción de vehículo del usuario no puede estar vacia ");
 		}
 		
 				
@@ -77,7 +77,13 @@ public class ClienteService {
 	
 	public List<Cliente> obtener()throws IWDaoException{
 		return clienteDAO.obtener();
-		
+	}
+	
+	public List<Cliente> obtenerPorTipo(String tipo)throws IWDaoException, IWServiceException{
+		if(Validaciones.isTextoVacio(tipo)){
+			throw new IWServiceException("El tipo de cliente no puede ser vacío");
+		}
+		return clienteDAO.obtenerByTipo(tipo);
 	}
 	
 	public Cliente obtener(Integer ficho) throws IWDaoException, IWServiceException{
@@ -88,6 +94,53 @@ public class ClienteService {
 		}
 		
 		return clienteDAO.obtener(ficho);
+	}
+	
+	public void modificarCliente(Integer ficho, String apartamento
+			,Long telefono,Long celular,String correo,boolean tiene_vehiculo, Date fecha_salida) throws  IWDaoException, IWServiceException{
 		
+		Cliente cliente=null; 
+		
+		if(Validaciones.isTextoVacio(String.valueOf(ficho))) {
+			throw new IWServiceException("El ficho no puede ser nulo ni vacio ");
+		}
+		
+		
+		if(Validaciones.isTextoVacio(String.valueOf(apartamento))) {
+			throw new IWServiceException("El campo de apartamento del usuario no puede estar vacio ");
+		}	
+		
+		if(Validaciones.isTextoVacio(String.valueOf(String.valueOf(tiene_vehiculo)))) {
+			throw new IWServiceException("La opción de vehículo del usuario no puede estar vacia ");
+		}
+		
+				
+		if(!Validaciones.isTextoVacio(correo)) {
+		if(!Validaciones.isEmail(correo)) {
+			throw new IWServiceException("El correo electronico del cliente debe ser valido");
+		}}
+		
+		cliente= clienteDAO.obtener(ficho);
+		
+		cliente.setFicho(ficho);;
+		cliente.setApartamento(apartamento);
+		cliente.setTelefono(telefono);
+		cliente.setCelular(celular);
+		cliente.setTieneVehiculo(tiene_vehiculo);
+		cliente.setFechaSalida(fecha_salida);
+		
+		clienteDAO.modificar(cliente);
+	}
+	
+	public void eliminarCliente(Integer ficho) throws IWDaoException, IWServiceException {
+		Cliente cliente =null;
+		if(Validaciones.isTextoVacio(String.valueOf(ficho))){
+			throw new IWServiceException("El número de ficho no puede ser vacío");
+		}
+		cliente=clienteDAO.obtener(ficho);
+		if(cliente==null) {
+			throw new IWServiceException("No existe un cliente con este número de ficho");
+		}
+		clienteDAO.eliminar(cliente);
 	}
 }
