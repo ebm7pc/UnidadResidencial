@@ -19,8 +19,8 @@ import org.hibernate.annotations.GenericGenerator;
  * @author Eduardo B , Yesid M
  *
  */
-@Entity
-@Table(name = "accesos")
+//@Entity
+//@Table(name = "accesos")
 public class Acceso implements Serializable {
 	
 //	@SequenceGenerator(name = "native", sequenceName = "AUTO_INCREMENT")
@@ -36,8 +36,8 @@ public class Acceso implements Serializable {
 	/**
 	 * Identificador único del acceso
 	 */
-	@Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+//	@Id
+//    @GeneratedValue(strategy = GenerationType.TABLE)
 	private Integer id;
 	
 	/**
@@ -59,6 +59,10 @@ public class Acceso implements Serializable {
 		super();
 		this.fechaAcceso = fechaA;
 		this.idCliente = cliente;
+	}
+	
+	public Acceso() {
+		super();
 	}
 	
 
