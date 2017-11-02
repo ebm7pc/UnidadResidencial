@@ -15,4 +15,5 @@ public interface VehiculoDAO {
 	public void eliminar(Vehiculo vehiculo) throws IWDaoException;
 	public List <Vehiculo> obtenerByCliente(Integer idCliente) throws IWDaoException;
 	public Cliente obtenerById(String placa) throws IWDaoException;
+	public Vehiculo obtener(String placa) throws IWDaoException;
 }

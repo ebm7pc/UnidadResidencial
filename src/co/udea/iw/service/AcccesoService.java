@@ -17,7 +17,7 @@ public class AcccesoService {
 	@Autowired
 	AccesoDAO accesoDAO;
 	
-	public void guardarAcceso(Integer id, Date fechaAcceso, Cliente clienteAccede) throws  IWDaoException, IWServiceException{
+	public void guardarAcceso(Integer id, Cliente clienteAccede) throws  IWDaoException, IWServiceException{
 		
 		Acceso acceso =null; 
 		

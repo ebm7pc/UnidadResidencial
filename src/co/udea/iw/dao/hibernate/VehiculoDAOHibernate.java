@@ -104,5 +104,25 @@ public class VehiculoDAOHibernate extends HibernateDaoSupport implements Vehicul
 		}
 		return cliente;		
 	}
+	
+	
+	/**
+	 * Metodo que permite obtenerun vehiculo con una placa dada
+	 */
+	@Override
+	public Vehiculo obtener(String placa) throws IWDaoException {
+		Vehiculo vehiculo = null;
+		Cliente cliente = null;
+		Session session = null;
+		try {
+			session = this.getSessionFactory().getCurrentSession(); // getSession();
+			vehiculo = (Vehiculo) session.load(Vehiculo.class, placa);			
+		} catch (HibernateException e) {
+			throw new IWDaoException(e);
+		} finally {
+			session.close();
+		}
+		return vehiculo;		
+	}
 
 }
