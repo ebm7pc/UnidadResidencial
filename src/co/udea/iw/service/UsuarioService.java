@@ -2,6 +2,7 @@ package co.udea.iw.service;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 
 import co.udea.iw.dao.UsuarioDAO;
 import co.udea.iw.dto.Cliente;
@@ -15,6 +16,14 @@ public class UsuarioService {
 	@Autowired
 	UsuarioDAO usuarioDAO;
 	
+	public UsuarioDAO getUsuarioDAO() {
+		return usuarioDAO;
+	}
+
+	public void setUsuarioDAO(UsuarioDAO usuarioDAO) {
+		this.usuarioDAO = usuarioDAO;
+	}
+
 	public void guardarUsuario(String nombreUsuario, String password, String tipoUsuario) throws  IWDaoException, IWServiceException{
 		
 		Usuario usuario =null; 
@@ -52,7 +61,7 @@ public class UsuarioService {
 	}
 
 	
-	public String iniciarSeccion(String nombreUsuario, String password) {
+	public String iniciarSeccion(String nombreUsuario, String password) throws IWDaoException, IWServiceException {
 		
 		if(Validaciones.isTextoVacio(nombreUsuario)){
 			throw new IWServiceException("El nombre de usuario no puede ser vacío");
@@ -66,7 +75,7 @@ public class UsuarioService {
 		
 	}
 	
-    public Usuario modificarUsuario(String nombreUsuario, String password) {
+    public Usuario modificarUsuario(String nombreUsuario, String password) throws IWDaoException, IWServiceException {
 		
 		if(Validaciones.isTextoVacio(nombreUsuario)){
 			throw new IWServiceException("El nombre de usuario no puede ser vacío");
@@ -80,7 +89,7 @@ public class UsuarioService {
 		
 	}
     
-public Usuario obtenerUsuario(String nombreUsuario) {
+public Usuario obtenerUsuario(String nombreUsuario) throws IWDaoException, IWServiceException {
 		
 		if(Validaciones.isTextoVacio(nombreUsuario)){
 			throw new IWServiceException("El nombre de usuario no puede ser vacío");

@@ -2,6 +2,9 @@ package co.udea.iw.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import co.udea.iw.dao.ClienteDAO;
 import co.udea.iw.dao.VehiculoDAO;
 import co.udea.iw.dto.Cliente;
 import co.udea.iw.dto.Vehiculo;
@@ -12,10 +15,28 @@ import co.udea.iw.util.validations.Validaciones;
 public class VehiculoService {
 	@Autowired
 	VehiculoDAO vehiculoDAO;
+	ClienteDAO clienteDAO;
 	
-	public void guardarUsuario(String placa, String marca, Cliente cliente) throws  IWDaoException, IWServiceException{
+	public ClienteDAO getClienteDAO() {
+		return clienteDAO;
+	}
+
+	public void setClienteDAO(ClienteDAO clienteDAO) {
+		this.clienteDAO = clienteDAO;
+	}
+
+	public VehiculoDAO getVehiculoDAO() {
+		return vehiculoDAO;
+	}
+
+	public void setVehiculoDAO(VehiculoDAO vehiculoDAO) {
+		this.vehiculoDAO = vehiculoDAO;
+	}
+
+	public void guardarUsuario(String placa, String marca, Integer fichoCliente) throws  IWDaoException, IWServiceException{
 		
-		Vehiculo vehiculo =null; 
+		Vehiculo vehiculo =null;
+		Cliente cliente=null;
 		
 		if(Validaciones.isTextoVacio(placa)) {
 			throw new IWServiceException("La placa del vehiculo no puede ser vacía");
@@ -24,7 +45,7 @@ public class VehiculoService {
 		if(Validaciones.isTextoVacio(marca)) {
 			throw new IWServiceException("La marca del vehiculo no puede ser vacía");
 		}
-		
+		cliente=clienteDAO.obtener(fichoCliente);
 		if(cliente == null ) {
 			throw new IWServiceException("El vehiculo debe tener un propietario");
 		}  

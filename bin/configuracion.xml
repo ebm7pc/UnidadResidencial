@@ -53,5 +53,25 @@
 	<bean id="vehiculoDAO" class="co.udea.iw.dao.hibernate.VehiculoDAOHibernate">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-
+	
+	
+	<bean id="clienteService" class="co.udea.iw.service.ClienteService">
+   <property name="clienteDAO" ref="clienteDAO"></property>
+   </bean>
+   
+   <bean id="accesoService" class="co.udea.iw.service.AccesoService">
+   <property name="accesoDAO" ref="accesoDAO"></property>
+   <property name="clienteDAO" ref="clienteDAO"></property>
+   </bean>
+   
+   <bean id="usuarioService" class="co.udea.iw.service.UsuarioService">
+   <property name="usuarioDAO" ref="usuarioDAO"></property>
+   </bean>
+   
+   <bean id="vehiculoService" class="co.udea.iw.service.VehiculoService">
+   <property name="vehiculoDAO" ref="vehiculoDAO"></property>
+   <property name="clienteDAO" ref="clienteDAO"></property>
+   </bean>
+   
+   <context:component-scan base-package="co.udea.iw.rest"></context:component-scan>
 </beans>

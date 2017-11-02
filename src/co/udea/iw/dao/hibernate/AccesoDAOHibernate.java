@@ -65,8 +65,8 @@ public class AccesoDAOHibernate extends HibernateDaoSupport implements AccesoDAO
 	 */
 	@Override
 	public List<Acceso> obtenerByIdCliente(Integer ficho) throws IWDaoException {
-		List<Acceso> accesos = new ArrayList<>();
-		List<Acceso> accesosFiltrados = new ArrayList<>();
+		List<Acceso> accesos = new ArrayList<Acceso>();
+		List<Acceso> accesosFiltrados = new ArrayList<Acceso>();
 		Session session = null;
 		try {
 			session = this.getSessionFactory().getCurrentSession(); // getSession();
@@ -92,8 +92,8 @@ public class AccesoDAOHibernate extends HibernateDaoSupport implements AccesoDAO
 	@Override
 	public List<Acceso> obtenerByFecha(Date fechaInicial, Date fechaFinal) throws IWDaoException {
 		//Date fechaI=ParseFecha(fechaInicial); Date fechaF=ParseFecha(fechaFinal);
-		List<Acceso> accesos = new ArrayList<>();
-		List<Acceso> accesosFiltrados = new ArrayList<>();
+		List<Acceso> accesos = new ArrayList<Acceso>();
+		List<Acceso> accesosFiltrados = new ArrayList<Acceso>();
 		Session session = null;
 		try {
 			session = this.getSessionFactory().getCurrentSession(); // getSession();
@@ -118,8 +118,8 @@ public class AccesoDAOHibernate extends HibernateDaoSupport implements AccesoDAO
 
 	@Override
 	public List<Acceso> obtenerByTipoCliente(String tipo) throws IWDaoException {
-		List<Acceso> accesos = new ArrayList<>();
-		List<Acceso> accesosFiltrados = new ArrayList<>();
+		List<Acceso> accesos = new ArrayList<Acceso>();
+		List<Acceso> accesosFiltrados = new ArrayList<Acceso>();
 		Session session = null;
 		try {
 			session = this.getSessionFactory().getCurrentSession(); // getSession();

@@ -65,8 +65,8 @@ public class VehiculoDAOHibernate extends HibernateDaoSupport implements Vehicul
 	 */
 	@Override
 	public List<Vehiculo> obtenerByCliente(Integer idCliente) throws IWDaoException {
-		List<Vehiculo> vehiculos = new ArrayList<>();
-		List<Vehiculo> vehiculosFiltrados = new ArrayList<>();
+		List<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
+		List<Vehiculo> vehiculosFiltrados = new ArrayList<Vehiculo>();
 		Session session = null;
 		try {
 			session = this.getSessionFactory().getCurrentSession(); // getSession();

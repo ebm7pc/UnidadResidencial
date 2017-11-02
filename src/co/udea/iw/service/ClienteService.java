@@ -16,7 +16,14 @@ public class ClienteService {
 	@Autowired
 	private ClienteDAO clienteDAO;
 	
-	
+	public ClienteDAO getClienteDAO() {
+		return clienteDAO;
+	}
+
+	public void setClienteDAO(ClienteDAO clienteDAO) {
+		this.clienteDAO = clienteDAO;
+	}
+
 	public void guardarCliente(Integer ficho, String tipo , String nombre, String apellido, Long identificacion, String apartamento
 			,Long telefono,Long celular,String correo,boolean tiene_vehiculo,String responsable, Date fecha_salida) throws  IWDaoException, IWServiceException{
 		
