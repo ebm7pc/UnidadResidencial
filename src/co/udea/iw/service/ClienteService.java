@@ -129,6 +129,10 @@ public class ClienteService {
 		
 		cliente= clienteDAO.obtener(ficho);
 		
+		if(cliente==null) {
+			throw new IWServiceException("No existe un cliente con este número de ficho");
+		}
+		
 		cliente.setFicho(ficho);;
 		cliente.setApartamento(apartamento);
 		cliente.setTelefono(telefono);
