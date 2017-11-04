@@ -9,6 +9,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.transaction.annotation.Transactional;
 
 import co.udea.iw.dao.ClienteDAO;
 import co.udea.iw.dto.Cliente;
@@ -28,7 +29,7 @@ public class ClienteDAOHibernate extends HibernateDaoSupport implements ClienteD
 		Transaction tx = null;
 		Session session = null;
 		try {
-			session = this.getSessionFactory().getCurrentSession(); // getSession();
+			session = getSession(); //session = this.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
 			session.save(cliente);
 			tx.commit();
@@ -49,7 +50,7 @@ public class ClienteDAOHibernate extends HibernateDaoSupport implements ClienteD
 		Transaction tx = null;
 		Session session = null;
 		try {
-			session = this.getSessionFactory().getCurrentSession(); // getSession();
+			session = getSession(); // this.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
 			session.update(cliente);
 			tx.commit();
@@ -69,7 +70,7 @@ public class ClienteDAOHibernate extends HibernateDaoSupport implements ClienteD
 		Transaction tx = null;
 		Session session = null;
 		try {
-			session = this.getSessionFactory().getCurrentSession(); // getSession();
+			session = getSession();// this.getSessionFactory().getCurrentSession(); 
 			tx = session.beginTransaction();
 			session.delete(cliente);
 			tx.commit();
@@ -87,13 +88,16 @@ public class ClienteDAOHibernate extends HibernateDaoSupport implements ClienteD
 	 */
 	@Override
 	public List<Cliente> obtener() throws IWDaoException {
+		Session session = null;
 		List<Cliente> clientes = new ArrayList<Cliente>();
 		try {
-			Session session = this.getSessionFactory().getCurrentSession(); // getSession();
+			session = getSession();//Session session = this.getSessionFactory().getCurrentSession();
 			Criteria criteria = session.createCriteria(Cliente.class);
 			clientes = criteria.list();
 		} catch (HibernateException e) {
 			throw new IWDaoException(e);
+		}finally {
+			session.close();
 		}
 		return clientes;
 	}
@@ -108,7 +112,7 @@ public class ClienteDAOHibernate extends HibernateDaoSupport implements ClienteD
 		List<Cliente> clientesFiltrados = new ArrayList<Cliente>();
 		Session session = null;
 		try {
-			session = this.getSessionFactory().getCurrentSession(); // getSession();
+			session = getSession();//this.getSessionFactory().getCurrentSession();
 			Criteria criteria = session.createCriteria(Cliente.class);
 			clientes = criteria.list();
 			for(Cliente cliente : clientes) {
@@ -133,7 +137,7 @@ public class ClienteDAOHibernate extends HibernateDaoSupport implements ClienteD
 		Cliente cliente = null;
 		Session session = null;
 		try {
-			session = this.getSessionFactory().getCurrentSession(); // getSession();
+			session = getSession();//session = this.getSessionFactory().getCurrentSession();
 			cliente = (Cliente) session.load(Cliente.class, ficho);
 		} catch (HibernateException e) {
 			throw new IWDaoException(e);

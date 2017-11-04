@@ -2,11 +2,13 @@ package co.udea.iw.dto;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
 /**
  * 
  * @author Eduardo B , Yesid M
  * Clase dto para la tabla clientes de la base de datos
  */
+@XmlRootElement
 public class Cliente implements Serializable {
 	/**
 	 * Ficho con el que se validara el acceso del cliente

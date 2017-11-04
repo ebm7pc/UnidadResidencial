@@ -77,14 +77,14 @@ public class ClienteService {
 		cliente.setResponsable(responsable);
 		cliente.setFechaSalida(fecha_salida);
 		cliente.setFechaRegistro(new Date());
-		
-		
 		clienteDAO.insertar(cliente);
 	}
+	
 	
 	public List<Cliente> obtener()throws IWDaoException{
 		return clienteDAO.obtener();
 	}
+	
 	
 	public List<Cliente> obtenerPorTipo(String tipo)throws IWDaoException, IWServiceException{
 		if(Validaciones.isTextoVacio(tipo)){
@@ -93,15 +93,14 @@ public class ClienteService {
 		return clienteDAO.obtenerByTipo(tipo);
 	}
 	
+	
 	public Cliente obtener(Integer ficho) throws IWDaoException, IWServiceException{
-		
-		if(ficho == null) {
-			
+		if(ficho == null) {	
 			throw new IWServiceException("El ficho del cliente no puede esatr vacio");
 		}
-		
 		return clienteDAO.obtener(ficho);
 	}
+	
 	
 	public void modificarCliente(Integer ficho, String apartamento
 			,Long telefono,Long celular,String correo,boolean tiene_vehiculo, Date fecha_salida) throws  IWDaoException, IWServiceException{
