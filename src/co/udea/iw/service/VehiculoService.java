@@ -33,7 +33,7 @@ public class VehiculoService {
 		this.vehiculoDAO = vehiculoDAO;
 	}
 
-	public void guardarUsuario(String placa, String marca, Integer fichoCliente) throws  IWDaoException, IWServiceException{
+	public void guardarVehiculo(String placa, String marca, Integer fichoCliente) throws  IWDaoException, IWServiceException{
 		
 		Vehiculo vehiculo =null;
 		Cliente cliente=null;
@@ -58,7 +58,7 @@ public class VehiculoService {
 		vehiculoDAO.insertar(vehiculo);
 	}
 	
-	public void eliminarUsuario(String placa) throws IWDaoException, IWServiceException {
+	public void eliminarVehiculo(String placa) throws IWDaoException, IWServiceException {
 		Vehiculo vehiculo =null;
 		if(Validaciones.isTextoVacio(placa)){
 			throw new IWServiceException("La placa del vehiculo no puede ser vacío");

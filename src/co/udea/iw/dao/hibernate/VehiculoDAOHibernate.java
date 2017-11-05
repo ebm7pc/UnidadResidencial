@@ -29,7 +29,7 @@ public class VehiculoDAOHibernate extends HibernateDaoSupport implements Vehicul
 		Transaction tx = null;
 		Session session = null;
 		try {
-			session = this.getSessionFactory().getCurrentSession(); // getSession();
+			session = getSession();
 			tx = session.beginTransaction();
 			session.save(vehiculo);
 			tx.commit();
@@ -49,7 +49,7 @@ public class VehiculoDAOHibernate extends HibernateDaoSupport implements Vehicul
 		Transaction tx = null;
 		Session session = null;
 		try {
-			session = this.getSessionFactory().getCurrentSession(); // getSession();
+			session =  getSession();
 			tx = session.beginTransaction();
 			session.delete(vehiculo);
 			tx.commit();
@@ -69,7 +69,7 @@ public class VehiculoDAOHibernate extends HibernateDaoSupport implements Vehicul
 		List<Vehiculo> vehiculosFiltrados = new ArrayList<Vehiculo>();
 		Session session = null;
 		try {
-			session = this.getSessionFactory().getCurrentSession(); // getSession();
+			session = getSession();
 			Criteria criteria = session.createCriteria(Vehiculo.class);
 			vehiculos = criteria.list();
 			for(Vehiculo vehiculo : vehiculos) {
@@ -94,7 +94,7 @@ public class VehiculoDAOHibernate extends HibernateDaoSupport implements Vehicul
 		Cliente cliente = null;
 		Session session = null;
 		try {
-			session = this.getSessionFactory().getCurrentSession(); // getSession();
+			session =  getSession();
 			vehiculo = (Vehiculo) session.load(Vehiculo.class, placa);
 			cliente=vehiculo.getIdCliente();
 		} catch (HibernateException e) {
@@ -115,7 +115,7 @@ public class VehiculoDAOHibernate extends HibernateDaoSupport implements Vehicul
 		Cliente cliente = null;
 		Session session = null;
 		try {
-			session = this.getSessionFactory().getCurrentSession(); // getSession();
+			session =  getSession();
 			vehiculo = (Vehiculo) session.load(Vehiculo.class, placa);			
 		} catch (HibernateException e) {
 			throw new IWDaoException(e);
