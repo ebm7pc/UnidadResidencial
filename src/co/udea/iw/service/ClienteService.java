@@ -24,8 +24,10 @@ public class ClienteService {
 		this.clienteDAO = clienteDAO;
 	}
 
-	public void guardarCliente(Integer ficho, String tipo , String nombre, String apellido, Long identificacion, String apartamento
-			,Long telefono,Long celular,String correo,boolean tiene_vehiculo,String responsable, Date fecha_salida) throws  IWDaoException, IWServiceException{
+	public void guardarCliente(Integer ficho, String tipo, String nombre, String apellido, 
+			Long identificacion, String apartamento, Long telefono, Long celular, 
+			String correo, boolean tiene_vehiculo, String responsable, Date fecha_salida) 
+					throws  IWDaoException, IWServiceException{
 		
 		Cliente cliente=null; 
 		
@@ -152,7 +154,5 @@ public class ClienteService {
 			throw new IWServiceException("No existe un cliente con este número de ficho");
 		}
 		clienteDAO.eliminar(cliente);
-	}
-	
-	
+	}	
 }

@@ -24,7 +24,7 @@ public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioD
 		Session session = null;
 		Usuario usuario = null;
 		try {
-			session = this.getSessionFactory().getCurrentSession();
+			session = getSession();
 			usuario = (Usuario)session.load(Usuario.class, nombre);
 		}catch(HibernateException e) {
 			throw new IWDaoException(e);
@@ -42,7 +42,7 @@ public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioD
 		Transaction tx = null;
 		Session session = null;
 		try {
-			session = this.getSessionFactory().getCurrentSession(); // getSession();
+			session = getSession();
 			tx = session.beginTransaction();
 			session.save(usuario);
 			tx.commit();
@@ -64,7 +64,7 @@ public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioD
 		Session session = null;
 		try {
 			usuario=obtener(nombre);
-			session = this.getSessionFactory().getCurrentSession(); // getSession();
+			session = getSession();
 			tx = session.beginTransaction();
 			usuario.setPassword(pwd);
 			session.update(usuario);
@@ -85,7 +85,7 @@ public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioD
 		Transaction tx = null;
 		Session session = null;
 		try {
-			session = this.getSessionFactory().getCurrentSession(); // getSession();
+			session = getSession();
 			tx = session.beginTransaction();
 			session.delete(usuario);
 			tx.commit();
@@ -105,7 +105,7 @@ public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioD
 		Session session = null;
 		String inicioSesion = "";
 		try {
-			session = this.getSessionFactory().getCurrentSession(); // getSession();
+			session = getSession();
 			usuario = (Usuario) session.load(Usuario.class, nombre);
 			if (usuario != null && pwd.equalsIgnoreCase(usuario.getPassword())) {
 				inicioSesion= usuario.getTipoUsuario();

@@ -1,11 +1,14 @@
 package co.udea.iw.dto;
 
 import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlRootElement;
 /**
  * 
  * @author Eduardo B , Yesid M
  * Clase dto para la tabla usuarios de la base de datos
  */
+@XmlRootElement
 public class Usuario implements Serializable {
 	/**
 	 * nombre de un usuario con el que hara el loguin
