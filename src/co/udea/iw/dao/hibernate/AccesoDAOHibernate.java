@@ -115,7 +115,6 @@ public class AccesoDAOHibernate extends HibernateDaoSupport implements AccesoDAO
 	/**
 	 * Metodo que retorna una lista de accesos de la base de datos por tipo de cliente ya sea Residente o Visistante 
 	 */
-
 	@Override
 	public List<Acceso> obtenerByTipoCliente(String tipo) throws IWDaoException {
 		List<Acceso> accesos = new ArrayList<Acceso>();
