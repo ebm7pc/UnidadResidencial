@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -21,6 +22,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 //@Entity
 //@Table(name = "accesos")
+@XmlRootElement
 public class Acceso implements Serializable {
 	
 //	@SequenceGenerator(name = "native", sequenceName = "AUTO_INCREMENT")

@@ -32,7 +32,7 @@ public class AccesoDAOHibernate extends HibernateDaoSupport implements AccesoDAO
 		Transaction tx = null;
 		Session session = null;
 		try {
-			session = this.getSessionFactory().getCurrentSession(); // getSession();
+			session = getSession();//session = this.getSessionFactory().getCurrentSession();
 			tx = session.beginTransaction();
 			session.save(acceso);
 			tx.commit();
@@ -51,7 +51,7 @@ public class AccesoDAOHibernate extends HibernateDaoSupport implements AccesoDAO
 	public List<Acceso> obtener() throws IWDaoException {
 		List<Acceso> accesos = new ArrayList<Acceso>();
 		try {
-			Session session = this.getSessionFactory().getCurrentSession(); // getSession();
+			Session session = getSession();//this.getSessionFactory().getCurrentSession();
 			Criteria criteria = session.createCriteria(Acceso.class);
 			accesos = criteria.list();
 		} catch (HibernateException e) {
@@ -69,7 +69,7 @@ public class AccesoDAOHibernate extends HibernateDaoSupport implements AccesoDAO
 		List<Acceso> accesosFiltrados = new ArrayList<Acceso>();
 		Session session = null;
 		try {
-			session = this.getSessionFactory().getCurrentSession(); // getSession();
+			session = getSession();//this.getSessionFactory().getCurrentSession();
 			Criteria criteria = session.createCriteria(Acceso.class);
 			accesos = criteria.list();
 			for(Acceso acceso : accesos) {
@@ -96,7 +96,7 @@ public class AccesoDAOHibernate extends HibernateDaoSupport implements AccesoDAO
 		List<Acceso> accesosFiltrados = new ArrayList<Acceso>();
 		Session session = null;
 		try {
-			session = this.getSessionFactory().getCurrentSession(); // getSession();
+			session = getSession();//this.getSessionFactory().getCurrentSession();
 			Criteria criteria = session.createCriteria(Acceso.class);
 			accesos = criteria.list();
 			for(Acceso acceso : accesos) {
@@ -122,7 +122,7 @@ public class AccesoDAOHibernate extends HibernateDaoSupport implements AccesoDAO
 		List<Acceso> accesosFiltrados = new ArrayList<Acceso>();
 		Session session = null;
 		try {
-			session = this.getSessionFactory().getCurrentSession(); // getSession();
+			session = getSession();//this.getSessionFactory().getCurrentSession();
 			Criteria criteria = session.createCriteria(Acceso.class);
 			accesos = criteria.list();
 			for(Acceso acceso : accesos) {
