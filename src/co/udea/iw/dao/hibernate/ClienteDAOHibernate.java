@@ -146,5 +146,37 @@ public class ClienteDAOHibernate extends HibernateDaoSupport implements ClienteD
 		}
 		return cliente;
 	}
+	
+	public String  comprobarAcceso(Integer ficho) throws IWDaoException{
+		Cliente cliente = null;
+		Session session = null;
+		String acceso=null;
+		try {
+			session = getSession();//session = this.getSessionFactory().getCurrentSession();
+			cliente = (Cliente) session.load(Cliente.class, ficho);
+			if(cliente!=null) {
+				if(cliente.getTipo().equalsIgnoreCase("Residente")) {
+					acceso="Accede";
+				}else if(cliente.getTipo().equalsIgnoreCase("Visitante")) {
+					Date dia=new Date();
+					if(cliente.getFechaSalida().after(dia)||cliente.getFechaSalida().equals(dia)) {
+						acceso="Accede";
+					}else {
+						acceso="El visitante no tiene acceso permitido";
+					}
+				}
+			}else {
+				acceso="El cliente no esta regitrado en el sistema"; 
+			}
+		} catch (HibernateException e) {			
+			throw new IWDaoException(e);
+		} finally {
+			session.close();
+		}
+		
+		return acceso;
+		
+		
+	}
 
 }

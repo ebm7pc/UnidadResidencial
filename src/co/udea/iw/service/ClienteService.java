@@ -193,4 +193,11 @@ public class ClienteService {
 		}
 		clienteDAO.eliminar(cliente);
 	}
+	
+	public String comprobarAcceso(Integer ficho) throws IWDaoException, IWServiceException {
+		if (ficho == null) {
+			throw new IWServiceException("El ficho del cliente no puede esatar vacio");
+		}
+		return clienteDAO.comprobarAcceso(ficho);
+	}
 }

@@ -23,7 +23,7 @@ public class UsuarioLoginTest {
 	@Test
 	public void testLogin() {
 		try {			
-		System.out.println(usuarioDao.login("yesid", "24kab"));
+		System.out.println(usuarioDao.login("yes", "kabebe"));
 		} catch (IWDaoException e) {
 			e.printStackTrace();
 			fail(e.getMessage());

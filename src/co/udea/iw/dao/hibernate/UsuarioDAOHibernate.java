@@ -103,7 +103,7 @@ public class UsuarioDAOHibernate extends HibernateDaoSupport implements UsuarioD
 	public String login(String nombre, String pwd) throws IWDaoException {
 		Usuario usuario = null;
 		Session session = null;
-		String inicioSesion = "";
+		String inicioSesion = "El usuario no existe";
 		try {
 			session = getSession();
 			usuario = (Usuario) session.load(Usuario.class, nombre);
