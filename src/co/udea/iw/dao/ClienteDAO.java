@@ -50,6 +50,11 @@ public interface ClienteDAO {
 	 * @throws IWDaoException
 	 */
 	public Cliente  obtener(Integer ficho) throws IWDaoException;
-	
+	/**
+	 * Definición del método que comprueba el ficho de un cliente para su acceso
+	 * @param ficho
+	 * @return
+	 * @throws IWDaoException
+	 */
 	public String comprobarAcceso(Integer ficho) throws IWDaoException; 
 }

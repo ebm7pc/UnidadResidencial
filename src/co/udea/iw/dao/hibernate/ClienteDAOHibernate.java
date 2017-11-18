@@ -146,8 +146,10 @@ public class ClienteDAOHibernate extends HibernateDaoSupport implements ClienteD
 		}
 		return cliente;
 	}
-	
-	public String  comprobarAcceso(Integer ficho) throws IWDaoException{
+	/**
+	 * Método para verificar el acceso de un cliente
+	 */
+	public String comprobarAcceso(Integer ficho) throws IWDaoException{
 		Cliente cliente = null;
 		Session session = null;
 		String acceso=null;
@@ -173,10 +175,7 @@ public class ClienteDAOHibernate extends HibernateDaoSupport implements ClienteD
 		} finally {
 			session.close();
 		}
-		
 		return acceso;
-		
-		
 	}
 
 }
