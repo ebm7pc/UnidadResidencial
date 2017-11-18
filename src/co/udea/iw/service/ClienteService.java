@@ -130,7 +130,7 @@ public class ClienteService {
 	 */
 	public Cliente obtener(Integer ficho) throws IWDaoException, IWServiceException {
 		if (ficho == null) {
-			throw new IWServiceException("El ficho del cliente no puede esatr vacio");
+			throw new IWServiceException("El ficho del cliente no puede estar vacio");
 		}
 		return clienteDAO.obtener(ficho);
 	}
