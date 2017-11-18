@@ -49,5 +49,7 @@ public interface ClienteDAO {
 	 * @return objeto de tipo cliente con sus datos correspondientes
 	 * @throws IWDaoException
 	 */
-	public Cliente obtener(Integer ficho) throws IWDaoException;
+	public Cliente  obtener(Integer ficho) throws IWDaoException;
+	
+	public String comprobarAcceso(Integer ficho) throws IWDaoException; 
 }

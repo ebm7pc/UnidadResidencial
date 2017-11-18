@@ -87,12 +87,21 @@ public class UsuarioService {
 	 * @throws IWServiceException
 	 */
 	public String iniciarSeccion(String nombreUsuario, String password) throws IWDaoException, IWServiceException {		
+		String login="";
 		if(Validaciones.isTextoVacio(nombreUsuario)){
 			throw new IWServiceException("El nombre de usuario no puede ser vacío");
 		}
 		if(Validaciones.isTextoVacio(password)){
 			throw new IWServiceException("La contraseña del usuario no puede ser vacía");
 		}
+		
+		Usuario usuario=usuarioDAO.obtener(nombreUsuario);
+		
+		if(usuario==null) {
+			login="Falló el Inicio de Sesión, Compruebe sus Datos";
+			throw new IWServiceException("Nombre de usuario o contraseña no validos");			
+		}
+		
 		return usuarioDAO.login(nombreUsuario, password);
 	}
 	/**

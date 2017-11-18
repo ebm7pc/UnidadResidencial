@@ -32,6 +32,7 @@ public class ClienteObtenerTest {
 			cliente = clienteDAO.obtener(123);
 			System.out.println("Nombre cliente: " + cliente.getNombre());
 			System.out.println("Apartamento del cliente: " + cliente.getApartamento());
+			System.out.println(clienteDAO.comprobarAcceso(123));
 			assertTrue(true);
 		}catch (IWDaoException e) {
 			fail(e.getMessage());
