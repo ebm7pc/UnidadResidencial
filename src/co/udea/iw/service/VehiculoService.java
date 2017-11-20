@@ -60,14 +60,14 @@ public class VehiculoService {
 		Vehiculo vehiculo =null;
 		Cliente cliente=null;
 		if(Validaciones.isTextoVacio(placa)) {
-			throw new IWServiceException("La placa del vehiculo no puede ser vacía");
+			throw new IWServiceException("La placa del vehículo no puede ser vacía");
 		}
 		if(Validaciones.isTextoVacio(marca)) {
-			throw new IWServiceException("La marca del vehiculo no puede ser vacía");
+			throw new IWServiceException("La marca del vehículo no puede ser vacía");
 		}
 		cliente=clienteDAO.obtener(fichoCliente);
 		if(cliente == null ) {
-			throw new IWServiceException("El vehiculo debe tener un propietario");
+			throw new IWServiceException("El vehículo debe tener un propietario");
 		}  
 		vehiculo= new Vehiculo();
 		vehiculo.setPlaca(placa);
@@ -84,11 +84,11 @@ public class VehiculoService {
 	public void eliminarVehiculo(String placa) throws IWDaoException, IWServiceException {
 		Vehiculo vehiculo =null;
 		if(Validaciones.isTextoVacio(placa)){
-			throw new IWServiceException("La placa del vehiculo no puede ser vacío");
+			throw new IWServiceException("La placa del vehículo no puede ser vacío");
 		}
 		vehiculo=vehiculoDAO.obtener(placa);
 		if(vehiculo==null) {
-			throw new IWServiceException("No existe un vehiculo con esta placa");
+			throw new IWServiceException("No existe un vehículo con esta placa");
 		}
 		vehiculoDAO.eliminar(vehiculo);
 	}
@@ -101,7 +101,7 @@ public class VehiculoService {
 	 */
 	public Cliente obtenerDueño(String placa) throws IWDaoException, IWServiceException {
 		if(Validaciones.isTextoVacio(placa)){
-			throw new IWServiceException("La placa del vehiculo no puede ser vacío");
+			throw new IWServiceException("La placa del vehículo no puede ser vacío");
 		}
 		return vehiculoDAO.obtenerById(placa);
 	}
@@ -114,7 +114,7 @@ public class VehiculoService {
 	 */
 	public List<Vehiculo> obtenerVehiculos(Integer idCliente) throws IWDaoException, IWServiceException {
 		if(Validaciones.isTextoVacio(String.valueOf(idCliente))){
-			throw new IWServiceException("La identificacion del cliente no puede ser vacía");
+			throw new IWServiceException("La identificacíon del cliente no puede ser vacía");
 		}
 		return vehiculoDAO.obtenerByCliente(idCliente);
 	}
